@@ -1,6 +1,6 @@
 <?php
 	$page_name="home.php";
-  //require ('header.php');
+  require ('entete.php');
   //require('../database_auth.php');
 ?>
 
@@ -20,10 +20,53 @@
 
   <div class="col-lg-12 col-md-12 col-sm-12">
 
-    <div class="col-lg-5 col-md-5 col-sm-5" style="border: 1px solid black; height: 400px;">
-    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4" style="border: 1px solid black; height: 500px; margin-right: 20px;">
 
-    <div class="col-lg-offset-1 col-lg-6 col-md-offset-1 col-md-6 col-sm-offset-1 col-sm-6" style="border: 1px solid red;  height: 400px;">
+      <h1 style="text-align: center;">Réservez</h1>
+      <row>
+      <div class="form-group">
+
+          <div class="row">
+            <div class="col-sm-12">
+              <label>Où</label>
+              <input type="text" class="form-control placeholder="First name">
+            </div>
+          </div>
+           <div class="row">  
+               <div class="col-md-6">
+                <label for="inputEmail4">Email</label>
+                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+              </div>
+              <div class="col-md-6">
+                <label for="inputPassword4">Password</label>
+                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <label>Voyageurs</label>
+                <input class="form-control" type="text" class="col-sm-12" name="">
+              </div>
+            </div>  
+          </div>    
+
+          <div class="row">
+            <div class="col-md-6 pull-right">    
+              <button type="button" class="form-control btn btn-primary">Rechercher</button>
+            </div>  
+          </div>
+
+         
+
+                
+              
+  
+      </div>
+        
+   
+    </div>
+    
     </div>
 
   </div>
