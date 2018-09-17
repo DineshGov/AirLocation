@@ -1,6 +1,6 @@
 <?php
 $page_name = "redirection_inscription.php"; 
-require('header.php');
+require('entete.php');
 require('database_auth.php'); ?>
 
 
@@ -21,7 +21,7 @@ require('database_auth.php'); ?>
 			$req->execute();
 			$tab = $req->fetch(PDO::FETCH_ASSOC);
 			if($tab['resultat']==0){
-				$req = $bd->prepare("insert into Users(login,password,progression) values (:log,:pass,1)");
+				$req = $bd->prepare("insert into Users(login,password) values (:log,:pass)");
 				$req->bindvalue(':log' , $_POST['inputUsername']);
 				$req->bindvalue(':pass', md5($_POST['inputPassword']) );
 				$req->execute();

@@ -14,6 +14,7 @@
 	}
 
 	function egalite_mdp(){
+		//Verifie si les deux mots de passe coincident. Si erreur, alors un flag est mis a true
 		if ($('#inputPasswordConfirm').val() !== $('#inputPassword').val()){
 	    	if($('#inputPassword').val() !== '' && $('#inputPasswordConfirm').val() !== ''){
 	        	if(!flag_password_created){
@@ -36,7 +37,7 @@
 	}
 
 	function verif_dispo_login_ajax(){
-		$.get("requete_ajax.php",  //on envoie en paramètre (ici login_2) la valeur du champ de texte au fichier requete_ajax.php
+		$.get("requete_ajax_inscription.php",  //on envoie en paramètre (ici login_2) la valeur du champ de texte au fichier requete_ajax.php
 		{login_2: $('#inputUsername').val()},
 		function(reponse)		//reponse du fichier requete_ajax.php (echo)
 		{
