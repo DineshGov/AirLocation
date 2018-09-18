@@ -9,7 +9,7 @@ require('database_auth.php');?>
 	<?php
 
 		if( isset($_POST['inputLogin']) && isset($_POST['inputPassword']) && trim($_POST['inputLogin']) !== "" && trim($_POST['inputPassword']) !== ""){
-			$req=$bd->prepare('select count(*) as resultat from Users where login=:log and password=:pas');
+			$req=$bd->prepare('select count(*) as resultat, is_owner from Users where login=:log and password=:pas');
 			$req->bindvalue(':log', $_POST['inputLogin']);
 			$req->bindvalue(':pas', md5($_POST['inputPassword']));
 			$req->execute();
@@ -22,6 +22,8 @@ require('database_auth.php');?>
 
 					$_SESSION['login'] = htmlspecialchars($_POST['inputLogin']);
 					$_SESSION['connecte'] = true;
+					if($tab['is_owner'] == 1)
+						$_SESSION['connecte'] = true;
 				}
 				else{
 					echo '<div class="redirection_div"> Erreur. </div>';

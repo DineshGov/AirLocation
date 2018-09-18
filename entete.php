@@ -21,8 +21,17 @@
       <a class="navbar-brand" href="home.php">AirLocation</a>
     </div>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="inscription.php"><span class="glyphicon glyphicon-user"></span> Inscription</a></li>
-      <li><a href="connexion.php"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
+      <?php 
+        if($_SESSION['connecte'] == true){
+          echo "<li><a href='#' id='connected_as'><span class='glyphicon glyphicon-education glyphicon_header'> </span> Connecté en tant qu'invité</a></li>";
+          echo '<li><a href="deconnexion.php"><span class="glyphicon glyphicon-off glyphicon_header"> </span> Déconnexion </a></li>';
+        }
+        else{
+          echo '<li><a href="inscription.php"><span class="glyphicon glyphicon-user"></span> Inscription</a></li>
+                <li><a href="connexion.php"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>';
+        }
+      ?>
+    
     </ul>
   </div>
 </nav>
