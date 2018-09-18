@@ -16,8 +16,21 @@ require('database_auth.php'); ?>
 	<div class="container">
 
 	  <form class="form-signin" id="form_inscription" action="redirection_inscription.php" method="post">
+	  	
 		<h2 class="form-signin-heading">Inscription</h2>
-		
+
+		<div class="input-group">
+		  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+		  <input type="text" id="inputPrenom" name="inputPrenom" class="form-control" maxlength="50" minlength="4" placeholder="Prénom" required autofocus>
+		</div>
+
+		<div class="input-group">
+		  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+		  <input type="text" id="inputNom" name="inputNom" class="form-control" maxlength="50" minlength="4" placeholder="Nom" required autofocus>
+		</div>
+
+		</br>
+
 		<div class="input-group">
 		  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 		  <input type="text" id="inputUsername" name="inputUsername" class="form-control" maxlength="50" minlength="4" placeholder="Nom d'utilisateur" required autofocus>
@@ -35,6 +48,18 @@ require('database_auth.php'); ?>
 		  <input type="password" id="inputPasswordConfirm" name="inputPasswordConfirm" class="form-control" maxlength="100" minlength="6" placeholder="Confirmer le mot de passe" required>
 		  <script type="text/javascript"> $('#inputPasswordConfirm').on('input', egalite_mdp); </script>
 		</div>
+
+		</br>
+
+		<p>Souhaitez-vous avoir un accès propriétaire:</p>
+		
+		<label class="radio-inline">
+      		<input type="radio" name="choiceOwner" value="oui" required>Oui
+    	</label>
+    	<label class="radio-inline">
+      		<input type="radio" name="choiceOwner" value="non" required>Non
+    	</label>
+		</br>
 
 		<button id="signupConfirm" class="btn btn-lg btn-danger btn-block auth_form_submitter active" type="submit">Inscription</button>
 		
