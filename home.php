@@ -51,7 +51,7 @@
           <div class="row">
             <div class="col-sm-12">
               <span class="glyphicon glyphicon-search" style="margin-top: 5px"></span>
-              <input type="text" class="form-control" placeholder="Où ?">
+              <input id="ville" type="text" class="form-control" placeholder="Où ?">
             </div>
           </div>
 
@@ -75,7 +75,7 @@
 
           <div class="row" style="margin-top: 50px;">
             <div class="col-md-6 pull-right">    
-              <button type="button" class="form-control btn btn-success">Rechercher</button>
+              <button id="recherche" type="button" class="form-control btn btn-success">Rechercher</button>
             </div>  
           </div>
 

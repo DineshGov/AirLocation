@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+	var poly;
 	window.onload = function (){
 
 		var mapboxUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}';
@@ -20,26 +21,37 @@ $(document).ready(function(){
 		    accessToken: mapboxToken
 		});
 
-		var tilesPirates=  L.tileLayer(mapboxUrl, {
-		    attribution: mapboxAttribution,
-		    maxZoom: 18,
-		    id: 'mapbox.pirates',
-		    accessToken: mapboxToken
-		});
-
+	
 		var mymap = L.map('mapid',{
-			center: [46.55886,2.28516],
-			zoom: 2,
-			maxZoom: 6,
-			layers: [tilesStreets, tilesSatellite , tilesPirates]
+			center: [48.866667,2.333333],
+			zoom: 12,
+			maxZoom: 18,
+			layers: [tilesStreets, tilesSatellite]
 		});
 
 		var baseMaps = {
-		    "Pirates": tilesPirates,
-		    "Rues": tilesStreets,
-			"Satellite": tilesSatellite
+		    "Satellite": tilesSatellite,
+			"Rues": tilesStreets
+			
 			};
 
 		L.control.layers(baseMaps).addTo(mymap);
-	}	
+		
+		$("#recherche").click(function(){
+		
+		$(".leaflet-interactive").remove();
+			$.get(
+				"traitement.php",
+				{ville: $('#ville').val()}, 
+				function(reponse)
+				{				
+					poly = L.geoJSON(reponse[0].geojson, {color: 'red'}).addTo(mymap);
+					mymap.setView(new L.LatLng(reponse[0].lat,reponse[0].lon));
+				}
+			);
+			
+		});
+	}
+	
+	
 });
