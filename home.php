@@ -47,11 +47,11 @@
    
       </div>
       
-
+        <form method="post" action="requete_ajax_home.php">
           <div class="row">
             <div class="col-sm-12">
               <span class="glyphicon glyphicon-search" style="margin-top: 5px"></span>
-              <input type="text" class="form-control" placeholder="Où ?">
+              <input type="text" id="destination" class="form-control" placeholder="Où ?" name="destination">
             </div>
           </div>
 
@@ -60,7 +60,7 @@
                 <span class="glyphicon glyphicon-calendar" style="margin-top: 5px"></span>
               
              <!-- <input type="email" class="form-control" id="inputEmail4" placeholder="Email"> -->
-                <input class="form-control" id="arrivee" type="text" placeholder="Date">
+                <input class="form-control" type="text" placeholder="Date" name="date" id="date">
               </div>
              
             </div>
@@ -68,17 +68,17 @@
             <div class="row" style="margin-top: 30px;">
               <div class="col-md-6">
                 <span class="glyphicon glyphicon-user" style="margin-top: 5px"></span>  
-                <input class="form-control" type="number" min="1" max="10" class="col-sm-12" placeholder="Voyageurs">
+                <input class="form-control" type="number" min="1" max="10" class="col-sm-12" placeholder="Voyageurs" name="voyageurs" id="voyageurs">
               </div>
-            </div>  
-              
+            </div> 
+               
 
           <div class="row" style="margin-top: 50px;">
             <div class="col-md-6 pull-right">    
-              <button type="button" class="form-control btn btn-success">Rechercher</button>
+              <button type="button" class="form-control btn btn-success" id="rechercher">Rechercher</button>
             </div>  
           </div>
-
+        </form>
 
       
 
