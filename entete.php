@@ -15,7 +15,7 @@
   <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
    integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
    crossorigin=""></script>
-   
+
   <link  href="css/hotel-datepicker.css" rel="stylesheet">
   <script src="jquery/jquery-3.3.1.js"></script>  
   <script src="bootstrap/js/bootstrap.min.js"></script>
@@ -40,16 +40,18 @@
     </div>
     <ul class="nav navbar-nav navbar-right">
       <?php 
-        if($_SESSION['connecte'] == true){
-          echo "<li><a href='#' id='connected_as'><span class='glyphicon glyphicon-education glyphicon_header'> </span> Connecté en tant qu'invité</a></li>";
+        if($_SESSION['connecte'] == true && $page_name !== "redirection_connexion.php" && $page_name !== "redirection_inscription.php" && $page_name !== "deconnexion.php"){
+          echo "<li><a href='mon_compte.php' id='espace_perso'> Espace Perso </a></li>";
+          echo "<li><a href='#' id='connected_as'><span class='glyphicon glyphicon-education glyphicon_header'> </span> Connecté en tant que " . $_SESSION['login'] . "</a></li>";
           echo '<li><a href="deconnexion.php"><span class="glyphicon glyphicon-off glyphicon_header"> </span> Déconnexion </a></li>';
         }
-        else{
-          echo '<li><a href="inscription.php"><span class="glyphicon glyphicon-user"></span> Inscription</a></li>';
-          echo '<li><a href="connexion.php"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>';
+        else if ($page_name !== "redirection_connexion.php" && $page_name !== "redirection_inscription.php"  && $page_name !== "deconnexion.php"){
+          if($page_name !== "inscription.php" && $_SESSION['connecte'] != true)
+            echo '<li><a href="inscription.php"><span class="glyphicon glyphicon-user"></span> Inscription</a></li>';
+          if($page_name !== "connexion.php" && $_SESSION['connecte'] != true)
+            echo '<li><a href="connexion.php"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>';
         }
       ?>
-    
     </ul>
   </div>
 </nav>

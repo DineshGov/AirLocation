@@ -1,7 +1,7 @@
-<?php
+<?php session_start(); ?>
+<?php 
 	$page_name="home.php";
   require ('entete.php');
-  //require('../database_auth.php');
 ?>
 
   <div class="col-lg-12 col-md-12 col-sm-12">
@@ -59,12 +59,5 @@
 
       
   </div>
-
-
-
-  
-
-
-  
 </body>
 </html>
