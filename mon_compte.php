@@ -5,7 +5,7 @@
 ?>
 
 	<div class="col-lg-12 col-md-12 col-sm-12">
-		<h1 id="" >Test</h1>
+		<h1 >Mes reservations</h1>
 		<div class="col-lg-12 col-md-12 col-sm-12">
 			
 		</div>
