@@ -20,26 +20,15 @@ $(document).ready(function(){
 		    id: 'mapbox.satellite',
 		    accessToken: mapboxToken
 		});
-
-<<<<<<< HEAD
-		
-
-		var mymap = L.map('mapid',{
-			center: [46.55886,2.28516],
-			zoom: 2,
-			maxZoom: 6,
-=======
 	
 		var mymap = L.map('mapid',{
 			center: [48.866667,2.333333],
 			zoom: 12,
 			maxZoom: 18,
->>>>>>> 0a48821f45401d94d47d9e1a679077174e487e50
 			layers: [tilesStreets, tilesSatellite]
 		});
 
 		var baseMaps = {
-<<<<<<< HEAD
 		    
 			"Satellite": tilesSatellite,
 			"Rues": tilesStreets
@@ -48,7 +37,7 @@ $(document).ready(function(){
 		L.control.layers(baseMaps).addTo(mymap);
 	}
 
-	$("#rechercher").click(function(){
+	$("#recherche").click(function(){
 
 		/*var destination=$("#destination").val();
 		var date= $("#date").val();
@@ -91,6 +80,11 @@ $(document).ready(function(){
 			},
 			function(reponse){
 				alert(reponse);
+
+				/* for(var i= 0; i < reponse.length; i++){
+					console.log(reponse[i]['nomLogement']);
+				} */
+
 				if(reponse){
 					console.log("OK");
 				}
@@ -105,30 +99,5 @@ $(document).ready(function(){
 
 	});
 
-=======
-		    "Satellite": tilesSatellite,
-			"Rues": tilesStreets
-			
-			};
 
-		L.control.layers(baseMaps).addTo(mymap);
-		
-		$("#recherche").click(function(){
-		
-		$(".leaflet-interactive").remove();
-			$.get(
-				"traitement.php",
-				{ville: $('#ville').val()}, 
-				function(reponse)
-				{				
-					poly = L.geoJSON(reponse[0].geojson, {color: 'red'}).addTo(mymap);
-					mymap.setView(new L.LatLng(reponse[0].lat,reponse[0].lon));
-				}
-			);
-			
-		});
-	}
-	
-	
->>>>>>> 0a48821f45401d94d47d9e1a679077174e487e50
 });

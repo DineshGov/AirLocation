@@ -21,7 +21,7 @@
             <div class="col-sm-12">
               <span class="glyphicon glyphicon-search" style="margin-top: 5px"></span>
               <input type="text" id="destination" class="form-control" placeholder="Où ?" name="destination">
-              <input id="ville" type="text" class="form-control" placeholder="Où ?">
+              <!-- <input id="ville" type="text" class="form-control" placeholder="Où ?"> -->
             </div>
           </div>
 
