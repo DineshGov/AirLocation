@@ -101,8 +101,11 @@ $(document).ready(function(){
 				voyageurs: $("#voyageurs").val() 
 			},
 			function(reponse){
-				alert(reponse);
+				//alert(reponse);
+				console.log("resultat");
+				console.log(reponse);
 
+				$("body").append(reponse);
 				/* for(var i= 0; i < reponse.length; i++){
 					console.log(reponse[i]['nomLogement']);
 				} */
