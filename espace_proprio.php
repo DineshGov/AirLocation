@@ -3,6 +3,7 @@
 	$page_name="espace_proprio.php";
 	require ('entete.php');
 	require('database_auth.php');
+	var_dump($_SESSION);
 ?>
 
 	<div class="col-lg-12 col-md-12 col-sm-12">
@@ -29,40 +30,32 @@
 
 		    </script>
 
-		    <div class="col-lg-12 col-md-12 col-sm-12" id="div_gestion">
-
-		        <p>
-		            Latitude: <input type="text" id="clickedLatitude"> 
-		            Longitude: <input type="text" id="clickedLongitude">
-		        </p>
-
-		        <div>
-		        	<p>Situez votre logement sur la carte.</p>
-		            <p>Attribuer ces coordonnées à votre logement
-		            	<button type="button" class="btn btn-info btn-xs"> Go</button>
-		            </p>
-		        </div>
-
-		    </div>
-
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-6">
+        	<p>Situez votre logement sur la carte.</p>
         	<form action="add_propriete.php" method="POST">
-
+        		<?php
+        		echo '<input type="hidden" name="idProprio" id="idProprio" value="' . $_SESSION['idUser'] . '">';
+        		?>
+        		<label for="lat">Latitude:</label>
+        		<input type="text" name="lat" id="lat" required>
+        		<label for="long">Longitude:</label>
+        		<input type="text" name="long" id="long" required>
+        		</br>
         		<label for="inputVille">Ville:</label>
         		<div class="input-group">
 				    <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
 				    <input type="text" name="inputVille" id="inputVille" class="form-control" placeholder="Ville" required autofocus>
 				</div>
 
-				<label for="dateArr">Date d'arrivée:</label>
+				<label for="dateArr">Logement disponible le:</label>
         		<div class="input-group">
 				    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
 				    <input type="date" name="dateArr" id="dateArr" class="form-control" placeholder="Date d'arrivée" required>
 				</div>
 
-				<label for="dateDep">Date de départ:</label>
+				<label for="dateDep">Fin de la disponibilité:</label>
         		<div class="input-group">
 				    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
 				    <input type="date" name="dateDep" id="dateDep" class="form-control" placeholder="Date de départ" required>
@@ -91,7 +84,7 @@
 				<label for="inputPrix">Prix:</label>
         		<div class="input-group">
 				    <span class="input-group-addon"><i class="glyphicon glyphicon-euro"></i></span>
-				    <input type="number" name="inputPrx" id="inputPrx" class="form-control" placeholder="Prix" min="0" required>
+				    <input type="number" name="inputPrix" id="inputPrix" class="form-control" placeholder="Prix" min="0" required>
 				</div>
 
 				<label for="inputNom">Titre de l'annonce:</label>

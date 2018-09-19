@@ -21,6 +21,10 @@ function recuperation_coordonnees(e) {
         
         $("#clickedLatitude").val(extractionCoordonnees[0]);
         $("#clickedLongitude").val(extractionCoordonnees[1]);
+
+        $("#lat").val(extractionCoordonnees[0]);
+        $("#long").val(extractionCoordonnees[1]);
+
         get_ville_from_coordinates();
 }
 
@@ -29,8 +33,8 @@ function get_ville_from_coordinates(){
     $.get(
         "requete_ajax_espace_proprio.php",
         {
-            lat: $("#clickedLatitude").val(),
-            long: $("#clickedLongitude").val()
+            lat: $("#lat").val(),
+            long: $("#long").val()
         }, 
         function(reponse)
         {       
