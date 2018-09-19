@@ -6,25 +6,21 @@ $lonNordEst = (float)$_GET['lonNordEst'];
 $latSudOuest = (float)$_GET['latSudOuest'];
 $lonSudOuest = (float)$_GET['lonSudOuest'];
 
-$rep='';
+$rep=array();
 
 $req = $bd->prepare("select * from logements");
 $req->execute();
+
+/*echo "Latitude Nord-Est: ".$latNordEst.'<br>';
+echo "Longitude Nord-Est: ".$lonNordEst.'<br>';
+echo "Latitude Sud-Ouest: ".$latSudOuest.'<br>';
+echo "Longitude Sud-Ouest: ".$lonSudOuest.'<br>';*/
 
 while($tab = $req->fetch(PDO::FETCH_ASSOC)) //on repete tant qu'il y aura des logements avec des coordonnées
 {
 	$lon = $tab['longitude'];
 	$lat = $tab['latitude'];
 	
-	
-	/*$req2 = $bd->prepare
-	("
-		select ST_CONTAINS
-			(
-			ST_GEOMFROMTEXT('POLYGON((48.89 2.27,48.89 2.42,48.81 2.42,48.81 2.27,48.89 2.27))'), 
-			ST_GEOMFROMTEXT('POINT(48.86 2.30)')
-			) as val;
-	");*/
 	
 	$req2 = $bd->prepare //requete verifiant si l'emplacement du logement appartient au champ delimités par les bords passé en parametre get
 	("
@@ -38,14 +34,14 @@ while($tab = $req->fetch(PDO::FETCH_ASSOC)) //on repete tant qu'il y aura des lo
 	$req2->execute();
 	$tab2 = $req2->fetch(PDO::FETCH_ASSOC);	//on recupere la valeur booleene
 	
-	if($tab2)
+	$ville = $tab['ville'];
+
+	if($tab2['val'])
 	{
-		$rep.="ce lieu appartient à la borne".'<br>';
+		array_push($rep,$tab);
 	}
-	else
-	{
-		$rep.="ce lieu n'appartient pas à la borne".'<br>';
-	}
-	
+		
 }
-echo $rep;
+
+header('Content-Type: application/json');
+echo json_encode($rep);
