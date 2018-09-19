@@ -80,6 +80,26 @@ $(document).ready(function(){
 			var date_debut = dates[0];
 			var date_fin = dates[1];
 
+		$.post(
+			"requete_ajax_home.php",
+			{
+				destination: $("#destination").val(),
+				date_debut: date_debut,
+				date_fin: date_fin,
+				voyageurs: $("#voyageurs").val() 
+			},
+			function(reponse)
+			{
+				
+				//alert(reponse);
+				console.log("resultat");
+				console.log(reponse);
+
+				$("body").append(reponse);
+				/* for(var i= 0; i < reponse.length; i++){
+					console.log(reponse[i]['nomLogement']);
+				} */
+
 			$.post(
 				"requete_ajax_home.php",
 				{
@@ -96,8 +116,8 @@ $(document).ready(function(){
 
 				}
 			);
-		});
+			});
 		
+		});
 	}
-
 });
