@@ -42,7 +42,8 @@
               </div>
             </div> 
                
-
+			
+			   
           <div class="row" style="margin-top: 50px;">
             <div class="col-md-6 pull-right">    
               <button id="recherche" type="button" class="form-control btn btn-success">Rechercher</button>
@@ -57,8 +58,9 @@
 
     <div id="mapid" class='col-md-7 col-sm-7 col-lg-7 custom-popup' style="border: 1px solid black; height: 500px;"></div>
 
-
-      
+	<p id="coord"></p>
+	<p id="coord2"></p>
+	
   </div>
 </body>
 </html>
