@@ -20,3 +20,10 @@ function RedirectionVersHome(){
 	var url_destination = url_sans_nom_fichier.concat("/home.php");
   	document.location.href= url_destination; 
 }
+
+function RedirectionVersEspaceProprio(){
+	var url = document.location.href;
+	var url_sans_nom_fichier  = url.substring( 0 ,url.lastIndexOf( "/" ) );
+	var url_destination = url_sans_nom_fichier.concat("/espace_proprio.php");
+  	document.location.href= url_destination;
+}
