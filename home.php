@@ -8,6 +8,8 @@
 
   <div class="col-lg-12 col-md-12 col-sm-12">
 
+  <div id="notification"></div>
+
     <div class="col-lg-4 col-md-4 col-sm-4" style="border: 1px solid white; height: 500px; margin-right: 20px;">
       
       <div class = "panel panel-primary">
@@ -59,6 +61,9 @@
     </div>
 
     <div id="mapid" class='col-md-7 col-sm-7 col-lg-7 custom-popup' style="border: 1px solid black; height: 500px;"></div>
+
+
+    <div class="resultats"></div>
 
 	
   </div>
