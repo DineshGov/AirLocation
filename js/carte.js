@@ -1,6 +1,8 @@
 $(document).ready(function(){
 
 	var poly;
+	var monMarqueur = [];
+	var bounds;
 	window.onload = function (){
 
 		var mapboxUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}';
@@ -39,28 +41,36 @@ $(document).ready(function(){
 		$("#recherche").click(function(){
 		
 		$(".leaflet-interactive").remove();
+		$(".leaflet-marker-icon").remove();
+		$(".leaflet-marker-shadow").remove();
+
 			$.get(
 				"requete_ajax_carte.php",
 				{ville: $('#destination').val()}, 
 				function(reponse)
-				{	
-					console.log(reponse);
+				{		
 					poly = L.geoJSON(reponse[0].geojson, {color: 'red'}).addTo(mymap);
-					mymap.setView(new L.LatLng(reponse[0].lat,reponse[0].lon));
+					mymap.setView(new L.LatLng(reponse[0].lat,reponse[0].lon));	
+
+					bounds = mymap.getBounds();
 					
-					var bounds = mymap.getBounds();
 					$.get(
-					"requete_ajax_carte_2.php",
-					{lonNordEst: bounds.getNorthEast().lng, latNordEst: bounds.getNorthEast().lat, lonSudOuest: bounds.getSouthWest().lng, latSudOuest: bounds.getSouthWest().lat}),
-					function(reponse)
-					{
-						console.log("succes");
-					}
-					
-					console.log(mymap.getBounds());
+						"requete_ajax_carte_2.php",
+						{lonNordEst: bounds.getNorthEast().lng, latNordEst: bounds.getNorthEast().lat, lonSudOuest: bounds.getSouthWest().lng, latSudOuest: bounds.getSouthWest().lat},
+						function(reponse)
+						{	
+						
+							for(var i=0; i<reponse.length; i++)
+							{
+								monMarqueur[i] = L.marker([reponse[i].latitude, reponse[i].longitude]).addTo(mymap);
+							}
+							
+						}
+					);
 				}
 			);
-
+			
+			
 		/*var destination=$("#destination").val();
 		var date= $("#date").val();
 		var voyageurs=$("#voyageurs").val(); 
@@ -82,13 +92,10 @@ $(document).ready(function(){
 	       }
 
 		});*/
- 		console.log($("#destination").val());
-		console.log($("#date").val());
+
 		var date= $("#date").val();
 		var dates=date.split(' - ');
-		console.log('debut fin');
-		console.log(dates[0]);
-		console.log(dates[1]);
+
 		var date_debut = dates[0];
 		var date_fin = dates[1];
 
@@ -110,23 +117,16 @@ $(document).ready(function(){
 					console.log(reponse[i]['nomLogement']);
 				} */
 
-				if(reponse){
-					console.log("OK");
-				}
-				else{
-					console.log(reponse);
-					console.log("erreur");
-				}
 			}
 		);
 
 
-
 	});
+	
+	
 	}
 	
 	
-
 	
 
 
