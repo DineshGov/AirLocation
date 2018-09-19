@@ -79,7 +79,9 @@ if (isset($_POST['destination']) && isset($_POST['date_debut']) && isset($_POST[
 	//echo "reussite";
 }
 else{
-	echo "slimane";
+	echo "<div class='alert alert-danger alert-dismissible'  role='alert'>Veuillez saisir <strong>une ville</strong>,<strong>une date </strong>et <strong>un nombre de voyageurs</strong> correctes.<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+    <span aria-hidden='true'>&times;</span>
+  </button></div>";
 }
 
 ?>

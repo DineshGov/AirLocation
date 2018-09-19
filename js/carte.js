@@ -112,7 +112,17 @@ $(document).ready(function(){
 				console.log("resultat");
 				console.log(reponse);
 
-				$("body").append(reponse);
+				if (reponse.includes("alert")){
+
+					$("#notification").html(reponse);
+				}
+				else{
+
+					$(".resultats").html(reponse);
+					//$(".notification").prepend(reponse);
+
+
+				}
 				/* for(var i= 0; i < reponse.length; i++){
 					console.log(reponse[i]['nomLogement']);
 				} */
