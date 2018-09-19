@@ -1,44 +1,28 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 19 sep. 2018 à 07:14
--- Version du serveur :  5.7.21
--- Version de PHP :  7.1.16
+-- Hôte : localhost:8889
+-- Généré le :  mer. 19 sep. 2018 à 10:07
+-- Version du serveur :  5.7.23
+-- Version de PHP :  7.1.20
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+--
+-- Base de données :  `airlocation`
+--
+DROP DATABASE `airlocation`;
+CREATE DATABASE IF NOT EXISTS `airlocation` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+USE `airlocation`;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users`
+-- Structure de la table `logements`
 --
 
-
-
-CREATE TABLE IF NOT EXISTS `users` (
-  `idUser` smallint(6) NOT NULL AUTO_INCREMENT,
-  `login` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `password` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `nom` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `prenom` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `is_owner` tinyint(1) NOT NULL,
-  PRIMARY KEY (`idUser`),
-  UNIQUE KEY `idUser` (`idUser`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
-
-
-
+DROP TABLE IF EXISTS `logements`;
 CREATE TABLE IF NOT EXISTS `logements` (
   `idLogement` smallint(3) NOT NULL,
   `ville` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
@@ -56,13 +40,14 @@ CREATE TABLE IF NOT EXISTS `logements` (
   UNIQUE KEY `idLogement` (`idLogement`),
   KEY `idProprio` (`idProprio`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
 -- --------------------------------------------------------
 
 --
 -- Structure de la table `reservations`
 --
 
-
+DROP TABLE IF EXISTS `reservations`;
 CREATE TABLE IF NOT EXISTS `reservations` (
   `idLogement` smallint(3) NOT NULL,
   `idUser` smallint(3) NOT NULL,
@@ -74,21 +59,23 @@ CREATE TABLE IF NOT EXISTS `reservations` (
   KEY `idUser` (`idUser`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
+-- --------------------------------------------------------
 
 --
--- Déchargement des données de la table `users`
+-- Structure de la table `users`
 --
 
-
-
-
-
---
--- Déchargement des données de la table `logements`
---
-
-
-
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `idUser` smallint(6) NOT NULL AUTO_INCREMENT,
+  `login` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `password` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `nom` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `prenom` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `is_owner` tinyint(1) NOT NULL,
+  PRIMARY KEY (`idUser`),
+  UNIQUE KEY `idUser` (`idUser`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 --
 -- Contraintes pour les tables déchargées
@@ -106,11 +93,7 @@ ALTER TABLE `logements`
 ALTER TABLE `reservations`
   ADD CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`idLogement`) REFERENCES `logements` (`idLogement`) ON DELETE CASCADE,
   ADD CONSTRAINT `reservations_ibfk_2` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE CASCADE;
-COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
 
 INSERT INTO `users` (`idUser`, `login`, `password`, `nom`, `prenom`, `is_owner`) VALUES
