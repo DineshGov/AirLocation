@@ -35,9 +35,31 @@ $(document).ready(function(){
 			};
 
 		L.control.layers(baseMaps).addTo(mymap);
-	}
-
-	$("#recherche").click(function(){
+		
+		$("#recherche").click(function(){
+		
+		$(".leaflet-interactive").remove();
+			$.get(
+				"traitement.php",
+				{ville: $('#destination').val()}, 
+				function(reponse)
+				{	
+					console.log(reponse);
+					poly = L.geoJSON(reponse[0].geojson, {color: 'red'}).addTo(mymap);
+					mymap.setView(new L.LatLng(reponse[0].lat,reponse[0].lon));
+					
+					var bounds = mymap.getBounds();
+					$.get(
+					"traitement2.php",
+					{lonNordEst: bounds.getNorthEast().lng, latNordEst: bounds.getNorthEast().lat, lonSudOuest: bounds.getSouthWest().lng, latSudOuest: bounds.getSouthWest().lat}),
+					function(reponse)
+					{
+						console.log("succes");
+					}
+					
+					console.log(mymap.getBounds());
+				}
+			);
 
 		/*var destination=$("#destination").val();
 		var date= $("#date").val();
@@ -98,6 +120,11 @@ $(document).ready(function(){
 
 
 	});
+	}
+	
+	
+
+	
 
 
 });

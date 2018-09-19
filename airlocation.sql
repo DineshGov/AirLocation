@@ -53,7 +53,14 @@ CREATE TABLE IF NOT EXISTS `logements` (
 
 INSERT INTO `logements` (`idLogement`, `ville`, `dateArr`, `dateDep`, `capacite`, `idProprio`, `longitude`, `latitude`, `typeLogement`, `prix`, `description`, `nomLogement`) VALUES
 (1, 'Paris', '2018-09-18', '2018-09-30', 4, 1, 2.26562, 48.8318, 'appartement', 61, 'L\'INTER-HOTEL PARISIANA à Paris jouit d\'un emplacement privilégié : situé dans un quartier populaire et vivant aux portes du 9ème arrondissement et à seulement 15 minutes de l\'Opéra Garnier. Il vous permet d\'accéder à tous les endroits de Paris ainsi qu\'aux nombreux points d\'intérêt de la capitale. ', 'Hôtel Parisiana'),
-(2, 'Paris', '2018-09-18', '2018-09-30', 4, 1, 2.32578, 48.8845, 'appartement', 89, 'L\'équipe de l\'Ibis Paris Montmartre 18ème vous accueille à l\'entrée d\'un lieu enchanteur. Prenez le temps de flâner dans les rues de la Butte Montmartre vers le Sacré Coeur. Ou pour une vie nocturne animée, découvrez Pigalle et son fameux Moulin Rouge.', 'Hôtel Montmartre');
+(2, 'Paris', '2018-09-18', '2018-09-30', 4, 1, 2.32578, 48.8845, 'appartement', 89, 'L\'équipe de l\'Ibis Paris Montmartre 18ème vous accueille à l\'entrée d\'un lieu enchanteur. Prenez le temps de flâner dans les rues de la Butte Montmartre vers le Sacré Coeur. Ou pour une vie nocturne animée, découvrez Pigalle et son fameux Moulin Rouge.', 'Hôtel Montmartre'),
+(3,"Pantin","2018-05-27","2018-05-28",5,0,2.403295,48.891094,"hotel",50.5,"un hotel à pantin","Pantin"),
+(4,"Lille","2018-05-27","2018-05-28",5,0,3.069272,50.636186,"hotel",50.5,"un hotel à lille","Lille");
+
+
+
+
+
 
 -- --------------------------------------------------------
 

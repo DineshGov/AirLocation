@@ -29,7 +29,7 @@ if (isset($_POST['destination']) && isset($_POST['date_debut']) && isset($_POST[
 
 	}while($res=$req->fetch(PDO::FETCH_ASSOC));
 	//echo $html_retour;
-	echo $tab[0]['nomLogement'].$tab[1]['nomLogement'];
+	echo $tab[0]['nomLogement'];
 
 	//echo "reussite";
 }

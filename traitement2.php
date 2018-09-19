@@ -11,7 +11,7 @@ $rep='';
 $req = $bd->prepare("select * from logements");
 $req->execute();
 
-while($tab = $req->fetch(PDO::FETCH_ASSOC))
+while($tab = $req->fetch(PDO::FETCH_ASSOC)) //on repete tant qu'il y aura des logements avec des coordonnées
 {
 	$lon = $tab['longitude'];
 	$lat = $tab['latitude'];
@@ -26,7 +26,7 @@ while($tab = $req->fetch(PDO::FETCH_ASSOC))
 			) as val;
 	");*/
 	
-	$req2 = $bd->prepare
+	$req2 = $bd->prepare //requete verifiant si l'emplacement du logement appartient au champ delimités par les bords passé en parametre get
 	("
 		select ST_CONTAINS
 			(
