@@ -20,8 +20,16 @@ if (isset($_POST['destination']) && isset($_POST['date_debut']) && isset($_POST[
 	$req->execute();
 	$res= $req->fetch(PDO::FETCH_ASSOC);
 
-	$html_retour = "<div>" . $res['nomLogement']."</div>";
-	echo $html_retour;
+	//$html_retour = "<div>" . $res['nomLogement']."</div>";
+	$tab=[];
+	do{
+		array_push($tab, $res);
+
+
+
+	}while($res=$req->fetch(PDO::FETCH_ASSOC));
+	//echo $html_retour;
+	echo $tab[0]['nomLogement'].$tab[1]['nomLogement'];
 
 	//echo "reussite";
 }
