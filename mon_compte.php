@@ -6,7 +6,7 @@
 ?>
 
 	<div class="col-lg-12 col-md-12 col-sm-12">
-		<h1 >Mes reservations</h1>
+		<h1>Mes reservations</h1>
 		<div class="col-lg-offset-2 col-lg-8 col-lg-offset-2 col-md-offset-2 col-md-8 col-md-offset-2 col-sm-offset-2 col-sm-8 col-sm-offset-2">  
 			<table class="table table-striped table-bordered">
 	        	<thead>
@@ -35,5 +35,14 @@
 				</tbody>
 			</table>
 		</div>
-
 	</div>
+	<?php
+		if($_SESSION['connecte'] == true && $_SESSION['owner'] == 1){
+			echo '<div class="col-lg-12 col-md-12 col-sm-12">
+				<a href="espace_proprio.php"> <h1>Espace propriétaire</h1> </a>
+			</div>';
+		}
+
+	?>
+</body>
+</html>
