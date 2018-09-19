@@ -40,7 +40,7 @@ $(document).ready(function(){
 		
 		$(".leaflet-interactive").remove();
 			$.get(
-				"traitement.php",
+				"requete_ajax_carte.php",
 				{ville: $('#destination').val()}, 
 				function(reponse)
 				{	
@@ -50,7 +50,7 @@ $(document).ready(function(){
 					
 					var bounds = mymap.getBounds();
 					$.get(
-					"traitement2.php",
+					"requete_ajax_carte_2.php",
 					{lonNordEst: bounds.getNorthEast().lng, latNordEst: bounds.getNorthEast().lat, lonSudOuest: bounds.getSouthWest().lng, latSudOuest: bounds.getSouthWest().lat}),
 					function(reponse)
 					{
