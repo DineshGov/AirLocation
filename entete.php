@@ -27,8 +27,10 @@
 
   <link href="css/authentification.css" rel="stylesheet">
   <link href="css/mon_compte.css" rel="stylesheet">
+  <link href="css/espace_proprio.css" rel="stylesheet">
 
   <script src="js/redirection_pages_functions.js"></script>
+  <script src="js/espace_proprio.js"></script>
 </head>
 
 <body>

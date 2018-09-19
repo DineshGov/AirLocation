@@ -62,7 +62,9 @@
 
     <div id="mapid" class='col-md-7 col-sm-7 col-lg-7 custom-popup' style="border: 1px solid black; height: 500px;"></div>
 
+
     <div class="resultats"></div>
+
 	
   </div>
 </body>
