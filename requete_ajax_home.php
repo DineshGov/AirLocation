@@ -7,6 +7,7 @@ if (isset($_POST['destination']) && isset($_POST['date_debut']) && isset($_POST[
 	$voyageurs=$_POST['voyageurs'];
 	$date_debut=$_POST['date_debut'];
 	$date_fin=$_POST['date_fin'];
+	
 
 	$req=$bd->prepare('SELECT * FROM LOGEMENTS WHERE ville = :destination 
 											   and capacite >= :voyageurs 

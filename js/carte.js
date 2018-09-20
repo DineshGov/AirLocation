@@ -53,7 +53,7 @@ $(document).ready(function(){
 						poly = L.geoJSON(reponse[0].geojson, {color: 'red',opacity: 0.1}).addTo(mymap);
 						mymap.setView(new L.LatLng(reponse[0].lat,reponse[0].lon));	
 
-						bounds = mymap.getBounds();
+						var bounds = mymap.getBounds();
 						
 						$.get(
 							"requete_ajax_carte_2.php",
@@ -91,13 +91,27 @@ $(document).ready(function(){
 			var date_debut = dates[0];
 			var date_fin = dates[1];
 
+			var bounds_filtre=mymap.getBounds();
+		
+			console.log(bounds_filtre.getNorthEast().lng);
+			console.log(bounds_filtre.getNorthEast().lat);
+			console.log(bounds_filtre.getSouthWest().lng);
+			console.log(bounds_filtre.getSouthWest().lat);
+
+
 		$.post(
 			"requete_ajax_home.php",
 			{
 				destination: $("#destination").val(),
 				date_debut: date_debut,
 				date_fin: date_fin,
-				voyageurs: $("#voyageurs").val() 
+				voyageurs: $("#voyageurs").val(),
+				lon_north_east:bounds_filtre.getNorthEast().lng, 
+				lat_north_east:bounds_filtre.getNorthEast().lat,
+				lon_south_west:bounds_filtre.getSouthWest().lng,
+				lat_south_west:bounds_filtre.getSouthWest().lat
+
+
 			},
 			function(reponse)
 			{
@@ -121,22 +135,6 @@ $(document).ready(function(){
 					console.log(reponse[i]['nomLogement']);
 				} */
 
-			$.post(
-				"requete_ajax_home.php",
-				{
-					destination: $("#destination").val(),
-					date_debut: date_debut,
-					date_fin: date_fin,
-					voyageurs: $("#voyageurs").val() 
-				},
-				function(reponse){
-
-					/* for(var i= 0; i < reponse.length; i++){
-						console.log(reponse[i]['nomLogement']);
-					} */
-
-				}
-			);
 			});
 		
 		});
