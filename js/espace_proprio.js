@@ -21,6 +21,10 @@ function recuperation_coordonnees(e) {
         
         $("#clickedLatitude").val(extractionCoordonnees[0]);
         $("#clickedLongitude").val(extractionCoordonnees[1]);
+
+        $("#lat").val(extractionCoordonnees[0]);
+        $("#long").val(extractionCoordonnees[1]);
+
         get_ville_from_coordinates();
 }
 
@@ -29,21 +33,30 @@ function get_ville_from_coordinates(){
     $.get(
         "requete_ajax_espace_proprio.php",
         {
-            lat: $("#clickedLatitude").val(),
-            long: $("#clickedLongitude").val()
+            lat: $("#lat").val(),
+            long: $("#long").val()
         }, 
         function(reponse)
         {       
             console.log("in function reponse");
             var location;
-            if(reponse.address.town)
+            //typeof(x) != "undefined"
+            if(typeof(reponse.address.town) != "undefined"){
+                console.log('reponse.address.town= ' + reponse.address.town + "");
                 location = reponse.address.town;
-            else if(reponse.address.city)
+            }
+            else if(typeof(reponse.address.city) != "undefined"){
+                console.log('reponse.address.city= ' + reponse.address.city + "");
                 location = reponse.address.city;
-            else if(reponse.address.county)
+            }
+            else if(typeof(reponse.address.county) != "undefined"){
+                console.log('reponse.address.county= ' + reponse.address.county + "");
                 location = reponse.address.county;
-            else
+            }
+            else{
+                console.log('reponse.display_name= ' + reponse.display_name + "");
                 location = reponse.display_name;
+            }
 
             $('#inputVille').val(location);
 

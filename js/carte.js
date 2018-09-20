@@ -1,7 +1,6 @@
 $(document).ready(function(){
 
 	var poly;
-	var monMarqueur = [];
 	var bounds;
 	window.onload = function ()
 	{
@@ -64,9 +63,21 @@ $(document).ready(function(){
 							
 								for(var i=0; i<reponse.length; i++)
 								{
-									monMarqueur[i] = L.marker([reponse[i].latitude, reponse[i].longitude],{}).addTo(mymap);
-								}
-								
+									monMarqueur = [];
+									
+									monMarqueur[i] = L.marker([reponse[i].latitude, reponse[i].longitude],{id: reponse[i].idLogement,ville: reponse[i].ville}).addTo(mymap).on('click',function()
+									{
+										var a = $(this)[0].options.id;
+										$("tr").css("background-color","");
+										
+										$("td").each(function()
+										{
+											if($(this).attr('id')=="markId" && $(this).text()==parseInt(a) )
+												$(this).parent().css("background-color","grey");
+										})
+									
+									});									
+								}				
 							}
 						);
 					}

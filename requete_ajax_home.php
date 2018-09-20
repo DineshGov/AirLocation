@@ -54,7 +54,7 @@ if (isset($_POST['destination']) && isset($_POST['date_debut']) && isset($_POST[
 		do{
 			//On affiche chaque ligne de résultat
 			$resultats=$resultats."<tr>"."
-							    <th class='text-center'>".$res['idLogement']."</th>
+							    <td id='markId' class='text-center'>".$res['idLogement']."</th>
 								<td>".$res['ville']."</td>
 				 				<td class='text-center'>".$res['nomLogement']."</td>
 				 				<td>".$res['dateArr']."</td>

@@ -12,7 +12,7 @@
 	        	<thead>
 	          	<tr>
 	            	<th>idLogement</th>
-	            	<th>nbVoyageur</th>
+	            	<th>nbrVoyageur</th>
 	            	<th>dateArr</th>
 	            	<th>dateDep</th>
 	          	</tr>
@@ -20,13 +20,13 @@
 	       		<tbody>
 
 			<?php
-				$req=$bd->prepare('select idLogement, nbVoyageur, dateArr, dateDep from RESERVATIONS where idUser=:id');
+				$req=$bd->prepare('select idLogement, nbrVoyageur, dateArr, dateDep from RESERVATIONS where idUser=:id');
 				$req->bindvalue(':id', $_SESSION['idUser']);
 				$req->execute();
 			    while($tab = $req->fetch(PDO::FETCH_ASSOC)){
 					echo "<tr>";
 					echo "<td>" . $tab['idLogement'] . "</td>";
-					echo "<td>" . $tab['nbVoyageur'] . "</td>";
+					echo "<td>" . $tab['nbrVoyageur'] . "</td>";
 					echo "<td>" . $tab['dateArr'] . "</td>";
 					echo "<td>" . $tab['dateDep'] . "</td>";
 					echo "</tr>";
