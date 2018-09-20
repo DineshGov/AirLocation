@@ -52,8 +52,7 @@ CREATE TABLE IF NOT EXISTS `reservations` (
   `idLogement` smallint(3) NOT NULL,
   `nbrVoyageur` int(11) NOT NULL,
   `dateArr` date NOT NULL,
-  `dateDep` date NOT NULL,
-  PRIMARY KEY (`idUser`,`idLogement`)
+  `dateDep` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
@@ -92,11 +91,8 @@ ALTER TABLE `reservations`
   ADD CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`idLogement`) REFERENCES `logements` (`idLogement`) ON DELETE CASCADE,
   ADD CONSTRAINT `reservations_ibfk_2` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE CASCADE;
 
-
-
 INSERT INTO `users` (`idUser`, `login`, `password`, `nom`, `prenom`, `is_owner`) VALUES
-(1, 'slim', 'azerty', 'kouba', 'slimane', 1);
-
+(1, 'azerty', 'ab4f63f9ac65152575886860dde480a1', 'azerty', 'azerty', 1);
 
 INSERT INTO `logements` (`idLogement`, `ville`, `dateArr`, `dateDep`, `capacite`, `idProprio`, `longitude`, `latitude`, `typeLogement`, `prix`, `description`, `nomLogement`) VALUES
 (1, 'Paris', '2018-09-18', '2018-09-30', 4, 1, 2.26562, 48.8318, 'appartement', 61, 'L\'INTER-HOTEL PARISIANA à Paris jouit d\'un emplacement privilégié : situé dans un quartier populaire et vivant aux portes du 9ème arrondissement et à seulement 15 minutes de l\'Opéra Garnier. Il vous permet d\'accéder à tous les endroits de Paris ainsi qu\'aux nombreux points d\'intérêt de la capitale. ', 'Hôtel Parisiana'),
@@ -105,3 +101,6 @@ INSERT INTO `logements` (`idLogement`, `ville`, `dateArr`, `dateDep`, `capacite`
 (4,"Lille","2018-05-27","2018-05-28",5,1,3.069272,50.636186,"hotel",50.5,"un hotel à lille","Lille"),
 (5,"Gonesse","2018-05-27","2018-05-28",5,1,2.460192,48.979565,"hotel",50.5,"un hotel à gonesse","Gonesse"),
 (6,"Marseille","2018-05-27","2018-05-28",5,1,5.371591,43.312007,"hotel",50.5,"un hotel à marseille","Marseille");
+
+insert into reservations values(1,1,4,"2018-09-20","2018-09-22");
+insert into reservations values(1,1,4,"2018-09-24","2018-09-26");

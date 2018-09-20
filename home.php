@@ -4,8 +4,6 @@
   require ('entete.php');
 ?>
 
-<body>
-
   <div class="col-lg-12 col-md-12 col-sm-12">
 
   <div id="notification"></div>
@@ -42,7 +40,7 @@
             <div class="row" style="margin-top: 30px;">
               <div class="col-md-6">
                 <span class="glyphicon glyphicon-user" style="margin-top: 5px"></span>  
-                <input class="form-control" type="number" min="1" max="10" class="col-sm-12" placeholder="Voyageurs" name="voyageurs" id="voyageurs">
+                <input class="form-control col-sm-12" type="number" min="1" max="10" placeholder="Voyageurs" name="voyageurs" id="voyageurs">
               </div>
             </div> 
                
@@ -67,5 +65,6 @@
 
 	
   </div>
+
 </body>
 </html>
