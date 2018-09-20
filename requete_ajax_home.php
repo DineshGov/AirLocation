@@ -1,6 +1,32 @@
 <?php
 
 require("database_auth.php");
+if (isset($_POST['destination']) && isset($_POST['date_debut']) && isset($_POST['date_fin']) && isset($_POST['voyageurs'])){
+
+	$destination=$_POST['destination'];
+	$voyageurs=$_POST['voyageurs'];
+	$date_debut=$_POST['date_debut'];
+	$date_fin=$_POST['date_fin'];
+
+	$req=$bd->prepare('SELECT count(*) as nbr_logement_correspondant FROM LOGEMENTS WHERE ville = :destination 
+											   and capacite >= :voyageurs 
+											   and dateArr <= :date_debut
+											   and dateDep >= :date_fin');
+
+	$req->bindValue(':destination',$destination);
+	$req->bindValue(':voyageurs',$voyageurs);
+	$req->bindValue(':date_debut',$date_debut);
+	$req->bindValue(':date_fin',$date_fin);
+	$req->execute();
+	$res= $req->fetch(PDO::FETCH_ASSOC);
+
+	if($res['nbr_logement_correspondant'] == 0){
+		echo "<div class='alert alert-danger alert-dismissible'  role='alert'>Aucun logement n'est disponible pour ce <strong>nombre de voyageurs</strong>. Veuillez saisir un autre <strong>nombre de voyageurs</strong>.<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+    <span aria-hidden='true'>&times;</span>
+  </button></div>";
+	}
+}
+
 
 if (isset($_POST['destination']) && isset($_POST['date_debut']) && isset($_POST['date_fin']) && isset($_POST['voyageurs'])){
 	$destination=$_POST['destination'];
@@ -21,15 +47,7 @@ if (isset($_POST['destination']) && isset($_POST['date_debut']) && isset($_POST[
 	$req->execute();
 	$res= $req->fetch(PDO::FETCH_ASSOC);
 
-	//$html_retour = "<div>" . $res['nomLogement']."</div>";
 	$tab=[];
-	/*do{
-		array_push($tab, $res);
-
-
-	}while($res=$req->fetch(PDO::FETCH_ASSOC));
-	//echo $html_retour;
-	echo $tab[0]['nomLogement'].$tab[1]['nomLogement']; */
 
 	if($res){
 
@@ -45,7 +63,7 @@ if (isset($_POST['destination']) && isset($_POST['date_debut']) && isset($_POST[
 								<th scope=col>Type</th>
 								<th scope=col  class='text-center'>Description</th>
 								<th style='width:50px'>Prix</th>
-								<th sope=col>Actions</th>
+								<th scope=col>Actions</th>
 							</tr>
 						</thead>";
 		$resultats=$resultats."<tbody>";
@@ -55,7 +73,7 @@ if (isset($_POST['destination']) && isset($_POST['date_debut']) && isset($_POST[
 		do{
 			//On affiche chaque ligne de résultat
 			$resultats=$resultats."<tr>"."
-							    <td id='markId' class='text-center'>".$res['idLogement']."</th>
+							    <td id='markId' class='text-center'>{$res['idLogement']}</td>
 								<td>".$res['ville']."</td>
 				 				<td class='text-center'>".$res['nomLogement']."</td>
 				 				<td>".$res['dateArr']."</td>
@@ -64,12 +82,18 @@ if (isset($_POST['destination']) && isset($_POST['date_debut']) && isset($_POST[
 				 				<td>".$res['typeLogement']."</td>
 				 				<td>".$res['description']."</td>
 				 				<td class='text-center'>".$res['prix']."<i class='glyphicon glyphicon-euro'></i></td>
-				 				<td><button class='btn btn-success'>Réservez</button></td>
+				 				<td><button type='submit' class='btn btn-success' form='form_{$res['idLogement']}' >Disponibilités</button>" . 
+								"<form method='POST' action='recapitulatif.php' id='form_" . $res['idLogement'] . "'>" .
+								"<input type='hidden' name='idLogement' value='{$res['idLogement']}'>
+								<input type='hidden' name='date_debut_client' value='{$_POST['date_debut']}'>
+								<input type='hidden' name='date_fin_client' value='{$_POST['date_fin']}'> </form></td>
 								</tr>";
+
+
 					
 					$compteur ++;
 		}while($res = $req->fetch(PDO::FETCH_ASSOC));
-				$resultats=$resultats."</tbody>"."</table></div></div></div>";
+				$resultats=$resultats."</tbody>"."</table></div></div>";
 
 		echo $resultats;		
 				

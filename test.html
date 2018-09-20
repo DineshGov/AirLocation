@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div class='row'><div class='col-md-11'><table class='table table-bordered' style='margin-left:20px;margin-top:20px'>
+						<thead>
+							<tr>
+								<th scope=col>Résultats</th>
+								<th scope=col>Ville</th>
+								<th scope=col>Nom</th>
+								<th scope=col>Arrivée</th>
+								<th scope=col>Départ</th>
+								<th scope=col>Capacité</th>
+								<th scope=col>Type</th>
+								<th scope=col  class='text-center'>Description</th>
+								<th style='width:50px'>Prix</th>
+								<th scope=col>Actions</th>
+							</tr>
+						</thead><tbody><tr>
+							    <td id='markId' class='text-center'>1</td>
+								<td>Paris</td>
+				 				<td class='text-center'>Hôtel Parisiana</td>
+				 				<td>2018-09-18</td>
+				 				<td>2018-09-30</td>
+				 				<td class='text-center'>4</td>
+				 				<td>appartement</td>
+				 				<td>L'INTER-HOTEL PARISIANA à Paris jouit d'un emplacement privilégié : situé dans un quartier populaire et vivant aux portes du 9ème arrondissement et à seulement 15 minutes de l'Opéra Garnier. Il vous permet d'accéder à tous les endroits de Paris ainsi qu'aux nombreux points d'intérêt de la capitale. </td>
+				 				<td class='text-center'>61<i class='glyphicon glyphicon-euro'></i></td>
+				 				<td><button type='submit' class='btn btn-success' form='form_1' >Disponibilités</button>
+								<form method="POST" action='recapitulatif.php' id='form_1'><input type='hidden' name='idLogement' value='1'> </form></td></tr><tr>
+							    <td id='markId' class='text-center'>2</td>
+								<td>Paris</td>
+				 				<td class='text-center'>Hôtel Montmartre</td>
+				 				<td>2018-09-18</td>
+				 				<td>2018-09-30</td>
+				 				<td class='text-center'>4</td>
+				 				<td>appartement</td>
+				 				<td>L'équipe de l'Ibis Paris Montmartre 18ème vous accueille à l'entrée d'un lieu enchanteur. Prenez le temps de flâner dans les rues de la Butte Montmartre vers le Sacré Coeur. Ou pour une vie nocturne animée, découvrez Pigalle et son fameux Moulin Rouge.</td>
+				 				<td class='text-center'>89<i class='glyphicon glyphicon-euro'></i></td>
+				 				<td><button type='submit' class='btn btn-success' form='form_2' >Disponibilités</button></td>
+								<form method="POST" action='recapitulatif.php' id='form_2'><input type='hidden' name='idLogement' value='2'> </form></tr></tbody></table></div></div>
+								</body>
+								</html>
+
+
+
+
+
+
+								insert into reservations values(1,1,4,"2018-09-20","2018-09-22");
+insert into reservations values(1,1,4,"2018-09-24","2018-09-26");

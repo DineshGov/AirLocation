@@ -131,10 +131,6 @@ $(document).ready(function(){
 
 
 				}
-				/* for(var i= 0; i < reponse.length; i++){
-					console.log(reponse[i]['nomLogement']);
-				} */
-
 			});
 		
 		});
