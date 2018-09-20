@@ -30,6 +30,7 @@ while($tab = $req->fetch(PDO::FETCH_ASSOC)) //on repete tant qu'il y aura des lo
 			ST_GEOMFROMTEXT('POINT($lat $lon)')
 			) as val;
 	");
+	
 		
 	$req2->execute();
 	$tab2 = $req2->fetch(PDO::FETCH_ASSOC);	//on recupere la valeur booleene

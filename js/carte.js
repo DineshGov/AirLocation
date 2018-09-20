@@ -49,18 +49,20 @@ $(document).ready(function(){
 					"requete_ajax_carte.php",
 					{ville: $('#destination').val()}, 
 					function(reponse)
-					{		
+					{	
+						
 						poly = L.geoJSON(reponse[0].geojson, {color: 'red',opacity: 0.1}).addTo(mymap);
 						mymap.setView(new L.LatLng(reponse[0].lat,reponse[0].lon));	
 
-						var bounds = mymap.getBounds();
+						bounds = mymap.getBounds();
+						console.log(bounds);
 						
 						$.get(
 							"requete_ajax_carte_2.php",
 							{lonNordEst: bounds.getNorthEast().lng, latNordEst: bounds.getNorthEast().lat, lonSudOuest: bounds.getSouthWest().lng, latSudOuest: bounds.getSouthWest().lat},
 							function(reponse)
 							{	
-							
+								console.log(reponse);
 								for(var i=0; i<reponse.length; i++)
 								{
 									monMarqueur = [];
@@ -76,7 +78,9 @@ $(document).ready(function(){
 												$(this).parent().css("background-color","grey");
 										})
 									
-									});									
+									});
+									
+									monMarqueur[i].bindPopup("<strong>"+reponse[i].nomLogement+"</strong><br>"+reponse[i].description);
 								}				
 							}
 						);
