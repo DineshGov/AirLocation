@@ -121,26 +121,7 @@ $(document).ready(function(){
 
 
 				}
-				/* for(var i= 0; i < reponse.length; i++){
-					console.log(reponse[i]['nomLogement']);
-				} */
 
-			$.post(
-				"requete_ajax_home.php",
-				{
-					destination: $("#destination").val(),
-					date_debut: date_debut,
-					date_fin: date_fin,
-					voyageurs: $("#voyageurs").val() 
-				},
-				function(reponse){
-
-					/* for(var i= 0; i < reponse.length; i++){
-						console.log(reponse[i]['nomLogement']);
-					} */
-
-				}
-			);
 			});
 		
 		});

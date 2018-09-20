@@ -91,11 +91,8 @@ ALTER TABLE `reservations`
   ADD CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`idLogement`) REFERENCES `logements` (`idLogement`) ON DELETE CASCADE,
   ADD CONSTRAINT `reservations_ibfk_2` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE CASCADE;
 
-
-
 INSERT INTO `users` (`idUser`, `login`, `password`, `nom`, `prenom`, `is_owner`) VALUES
-(1, 'slim', 'azerty', 'kouba', 'slimane', 1);
-
+(1, 'azerty', 'ab4f63f9ac65152575886860dde480a1', 'azerty', 'azerty', 1);
 
 INSERT INTO `logements` (`idLogement`, `ville`, `dateArr`, `dateDep`, `capacite`, `idProprio`, `longitude`, `latitude`, `typeLogement`, `prix`, `description`, `nomLogement`) VALUES
 (1, 'Paris', '2018-09-18', '2018-09-30', 4, 1, 2.26562, 48.8318, 'appartement', 61, 'L\'INTER-HOTEL PARISIANA à Paris jouit d\'un emplacement privilégié : situé dans un quartier populaire et vivant aux portes du 9ème arrondissement et à seulement 15 minutes de l\'Opéra Garnier. Il vous permet d\'accéder à tous les endroits de Paris ainsi qu\'aux nombreux points d\'intérêt de la capitale. ', 'Hôtel Parisiana'),
@@ -107,3 +104,5 @@ INSERT INTO `logements` (`idLogement`, `ville`, `dateArr`, `dateDep`, `capacite`
 
 insert into reservations values(1,1,4,"2018-09-26","2018-09-28");
 insert into reservations values(1,1,4,"2018-09-22","2018-09-26")
+insert into reservations values(1,1,4,"2018-09-20","2018-09-22");
+insert into reservations values(1,1,4,"2018-09-24","2018-09-26");
