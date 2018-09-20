@@ -31,7 +31,7 @@
 
            <div class="row" style="margin-top: 30px;">  
                <div class="col-md-12">
-                <span class="glyphicon glyphicon-calendar" style="margin-top: 5px"></span>
+                <span class="glyphicon glyphicon-calendar" style="margin-top: 5px; "></span>
               
              <!-- <input type="email" class="form-control" id="inputEmail4" placeholder="Email"> -->
                 <input class="form-control" type="text" placeholder="Date" name="date" id="date">
@@ -60,7 +60,7 @@
 
     </div>
 
-    <div id="mapid" class='col-md-7 col-sm-7 col-lg-7 custom-popup' style="border: 1px solid black; height: 500px;"></div>
+    <div id="mapid" class='col-md-7 col-sm-7 col-lg-7 custom-popup' style="border: 1px solid black; height: 500px; display: inline-block; position: absolute; z-index: 0;"></div>
 
 
     <div class="resultats"></div>
