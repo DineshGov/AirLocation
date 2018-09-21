@@ -146,6 +146,42 @@
 			</div>
 		</div>
 		
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<br>
+			<h1>Mes Réservations en cours</h1>
+			<div>  
+				<table class="table table-striped table-bordered">
+					<thead>
+					<tr>
+						<th>Nom</th>
+						<th>Logement</th>
+						<th>Capacité</th>
+						<th>Arrivé</th>
+						<th>Départ</th>
+					</tr>
+					</thead>
+					<tbody>
+
+				<?php
+					
+					$req=$bd->prepare('select * from reservations r join logements l join users u on l.idLogement = r.idLogement and u.idUser = l.idProprio where l.idProprio=:id');
+					$req->bindvalue(':id', $_SESSION['idUser']);
+					$req->execute();
+					while($tab = $req->fetch(PDO::FETCH_ASSOC)){
+						echo "<tr>";
+						echo "<td>" . $tab['nom'] .' '.$tab['prenom']. "</td>";
+						echo "<td>" . $tab['nomLogement'] . "</td>";
+						echo "<td>" . $tab['capacite'] . "</td>";
+						echo "<td>" . $tab['dateArr'] . "</td>";
+						echo "<td>" . $tab['dateDep'] . "</td>";
+						echo "</tr>";
+					}
+				?>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
     </div>
 
 </body>
