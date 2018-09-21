@@ -77,7 +77,7 @@ $(document).ready(function(){
 										$("td").each(function()
 										{
 											if($(this).attr('id')=="markId" && $(this).text()==parseInt(a) )
-												$(this).parent().css("background-color","grey");
+												$(this).parent().css("background-color","#F5F5F5");
 										})
 										
 										var $target = $('html,body'); 
