@@ -153,7 +153,7 @@
 				<table class="table table-striped table-bordered">
 					<thead>
 					<tr>
-						<th>Nom</th>
+						<th>Locataire</th>
 						<th>Logement</th>
 						<th>Capacité</th>
 						<th>Arrivé</th>
