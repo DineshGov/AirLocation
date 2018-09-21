@@ -103,9 +103,49 @@
 				<button type="submit" class="btn btn-info">Ajout</button>
         	</form>
 		</div>
-    	
-    	   
 
+    	<div class="col-lg-12 col-md-12 col-sm-12">
+			<br>
+			<h1>Mes Propriétés</h1>
+			<div>  
+				<table class="table table-striped table-bordered">
+					<thead>
+					<tr>
+						<th>Logement</th>
+						<th>Ville</th>
+						<th class="col-lg-6 col-md-6 col-sm-6">Description</th>
+						<th>Type</th>
+						<th>Capacité</th>
+						<th>Prix</th>
+						<th>Arrivé</th>
+						<th>Départ</th>
+					</tr>
+					</thead>
+					<tbody>
+
+				<?php
+					
+					$req=$bd->prepare('select * from logements l where l.idProprio=:id');
+					$req->bindvalue(':id', $_SESSION['idUser']);
+					$req->execute();
+					while($tab = $req->fetch(PDO::FETCH_ASSOC)){
+						echo "<tr>";
+						echo "<td>" . $tab['nomLogement'] . "</td>";
+						echo "<td>" . $tab['ville'] . "</td>";
+						echo "<td>" . $tab['description'] . "</td>";
+						echo "<td>" . $tab['typeLogement'] . "</td>";
+						echo "<td>" . $tab['capacite'] . "</td>";
+						echo "<td>" . $tab['prix'] . "</td>";
+						echo "<td>" . $tab['dateArr'] . "</td>";
+						echo "<td>" . $tab['dateDep'] . "</td>";
+						echo "</tr>";
+					}
+				?>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
     </div>
 
 </body>
