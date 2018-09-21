@@ -2,9 +2,11 @@ $(document).ready(function(){
 
 	var poly;
 	var bounds;
+
+	
 	window.onload = function ()
 	{
-
+			
 		var mapboxUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}';
 		var mapboxAttribution ='Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>';
 		var mapboxToken = 'pk.eyJ1Ijoic2x5MTIzIiwiYSI6ImNqZXNuOXQ1aTEyNjYyeHA5dDgyYjlyZjgifQ.OGFCp15cp-8tHsz9WO527Q';
@@ -132,9 +134,19 @@ $(document).ready(function(){
 
 					$(".resultats").html(reponse);
 					//$(".notification").prepend(reponse);
-
-
 				}
+				
+				$('.btnSubmit').click(function(e){
+					if($('#idUser').val().trim()=="")
+					{
+						e.preventDefault();
+						//alert("Vous devez être ")
+						$('.btnSubmit').removeClass('btn-success');
+						$('.btnSubmit').addClass('btn-danger');
+						$('.btnSubmit').text("Connectez vous");
+					}
+				});
+				
 			});
 		
 		});

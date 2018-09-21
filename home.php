@@ -1,7 +1,11 @@
 <?php session_start(); ?>
 <?php 
 	$page_name="home.php";
-  require ('entete.php');
+	require ('entete.php');
+	if(isset($_SESSION['idUser']))
+		echo "<input type='hidden' id='idUser' value='{$_SESSION['idUser']}'/>";
+	else
+		echo "<input type='hidden' id='idUser' value=''/>";
 ?>
 
   <div class="col-lg-12 col-md-12 col-sm-12">
