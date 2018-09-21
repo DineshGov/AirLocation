@@ -82,7 +82,7 @@ if (isset($_POST['destination']) && isset($_POST['date_debut']) && isset($_POST[
 				 				<td>".$res['typeLogement']."</td>
 				 				<td>".$res['description']."</td>
 				 				<td class='text-center'>".$res['prix']."<i class='glyphicon glyphicon-euro'></i></td>
-				 				<td><button type='submit' class='btn btn-success' form='form_{$res['idLogement']}' >Disponibilités</button>" . 
+				 				<td><button type='submit' class='btnSubmit btn btn-success' form='form_{$res['idLogement']}' >Disponibilités</button>" . 
 								"<form method='POST' action='recapitulatif.php' id='form_" . $res['idLogement'] . "'>" .
 								"<input type='hidden' name='idLogement' value='{$res['idLogement']}'>
 								<input type='hidden' name='nbr_voyageur' value='{$_POST['voyageurs']}'>

@@ -1,7 +1,11 @@
 <?php session_start(); ?>
 <?php 
 	$page_name="home.php";
-  require ('entete.php');
+	require ('entete.php');
+	if(isset($_SESSION['idUser']))
+		echo "<input type='hidden' id='idUser' value='{$_SESSION['idUser']}'/>";
+	else
+		echo "<input type='hidden' id='idUser' value=''/>";
 ?>
   <link rel="stylesheet" type="text/css" href="css/home.css">
   <div class="col-lg-12 col-md-12 col-sm-12">
@@ -25,9 +29,11 @@
             </div>
           </div>
 
+
            <div class="row">  
                <div id="champ_calendrier" class="inner-addon left-addon">
                 <i class="glyphicon glyphicon-calendar"></i>
+
                 <input class="form-control" type="text" placeholder="Date" name="date" id="date">
               </div>
              

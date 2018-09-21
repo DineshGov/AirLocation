@@ -42,15 +42,15 @@
     </div>
     <ul class="nav navbar-nav navbar-right">
       <?php 
-        if($_SESSION['connecte'] == true && $page_name !== "redirection_connexion.php" && $page_name !== "redirection_inscription.php" && $page_name !== "deconnexion.php"){
+        if(@$_SESSION['connecte'] == true && $page_name !== "redirection_connexion.php" && $page_name !== "redirection_inscription.php" && $page_name !== "deconnexion.php"){
           echo "<li><a href='mon_compte.php' id='espace_perso'> Espace Perso </a></li>";
           echo "<li><a href='#' id='connected_as'><span class='glyphicon glyphicon-education glyphicon_header'> </span> Connecté en tant que " . $_SESSION['login'] . "</a></li>";
           echo '<li><a href="deconnexion.php"><span class="glyphicon glyphicon-off glyphicon_header"> </span> Déconnexion </a></li>';
         }
         else if ($page_name !== "redirection_connexion.php" && $page_name !== "redirection_inscription.php"  && $page_name !== "deconnexion.php"){
-          if($page_name !== "inscription.php" && $_SESSION['connecte'] != true)
+          if($page_name !== "inscription.php" && @$_SESSION['connecte'] != true)
             echo '<li><a href="inscription.php"><span class="glyphicon glyphicon-user"></span> Inscription</a></li>';
-          if($page_name !== "connexion.php" && $_SESSION['connecte'] != true)
+          if($page_name !== "connexion.php" && @$_SESSION['connecte'] != true)
             echo '<li><a href="connexion.php"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>';
         }
       ?>
