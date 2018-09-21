@@ -102,7 +102,5 @@ INSERT INTO `logements` (`idLogement`, `ville`, `dateArr`, `dateDep`, `capacite`
 (5,"Gonesse","2018-05-27","2018-05-28",5,1,2.460192,48.979565,"hotel",50.5,"un hotel à gonesse","Gonesse"),
 (6,"Marseille","2018-05-27","2018-05-28",5,1,5.371591,43.312007,"hotel",50.5,"un hotel à marseille","Marseille");
 
-insert into reservations values(1,1,4,"2018-09-26","2018-09-28");
-insert into reservations values(1,1,4,"2018-09-22","2018-09-26")
 insert into reservations values(1,1,4,"2018-09-20","2018-09-22");
 insert into reservations values(1,1,4,"2018-09-24","2018-09-26");
