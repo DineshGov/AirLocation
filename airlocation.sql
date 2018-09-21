@@ -104,5 +104,3 @@ INSERT INTO `logements` (`idLogement`, `ville`, `dateArr`, `dateDep`, `capacite`
 
 insert into reservations values(1,1,4,"2018-09-26","2018-09-28");
 insert into reservations values(1,1,4,"2018-09-22","2018-09-26")
-insert into reservations values(1,1,4,"2018-09-20","2018-09-22");
-insert into reservations values(1,1,4,"2018-09-24","2018-09-26");
