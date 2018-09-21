@@ -95,13 +95,27 @@ $(document).ready(function(){
 			var date_debut = dates[0];
 			var date_fin = dates[1];
 
+			var bounds_filtre=mymap.getBounds();
+		
+			console.log(bounds_filtre.getNorthEast().lng);
+			console.log(bounds_filtre.getNorthEast().lat);
+			console.log(bounds_filtre.getSouthWest().lng);
+			console.log(bounds_filtre.getSouthWest().lat);
+
+
 		$.post(
 			"requete_ajax_home.php",
 			{
 				destination: $("#destination").val(),
 				date_debut: date_debut,
 				date_fin: date_fin,
-				voyageurs: $("#voyageurs").val() 
+				voyageurs: $("#voyageurs").val(),
+				lon_north_east:bounds_filtre.getNorthEast().lng, 
+				lat_north_east:bounds_filtre.getNorthEast().lat,
+				lon_south_west:bounds_filtre.getSouthWest().lng,
+				lat_south_west:bounds_filtre.getSouthWest().lat
+
+
 			},
 			function(reponse)
 			{
@@ -121,7 +135,6 @@ $(document).ready(function(){
 
 
 				}
-
 			});
 		
 		});

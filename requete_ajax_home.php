@@ -33,6 +33,7 @@ if (isset($_POST['destination']) && isset($_POST['date_debut']) && isset($_POST[
 	$voyageurs=$_POST['voyageurs'];
 	$date_debut=$_POST['date_debut'];
 	$date_fin=$_POST['date_fin'];
+	
 
 	$req=$bd->prepare('SELECT * FROM LOGEMENTS WHERE ville = :destination 
 											   and capacite >= :voyageurs 
@@ -84,6 +85,7 @@ if (isset($_POST['destination']) && isset($_POST['date_debut']) && isset($_POST[
 				 				<td><button type='submit' class='btn btn-success' form='form_{$res['idLogement']}' >Disponibilités</button>" . 
 								"<form method='POST' action='recapitulatif.php' id='form_" . $res['idLogement'] . "'>" .
 								"<input type='hidden' name='idLogement' value='{$res['idLogement']}'>
+								<input type='hidden' name='nbr_voyageur' value='{$_POST['voyageurs']}'>
 								<input type='hidden' name='date_debut_client' value='{$_POST['date_debut']}'>
 								<input type='hidden' name='date_fin_client' value='{$_POST['date_fin']}'> </form></td>
 								</tr>";
