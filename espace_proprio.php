@@ -3,7 +3,6 @@
 	$page_name="espace_proprio.php";
 	require ('entete.php');
 	require('database_auth.php');
-	var_dump($_SESSION);
 ?>
 
 	<div class="col-lg-12 col-md-12 col-sm-12">
