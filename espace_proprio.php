@@ -3,7 +3,6 @@
 	$page_name="espace_proprio.php";
 	require ('entete.php');
 	require('database_auth.php');
-	var_dump($_SESSION);
 ?>
 
 	<div class="col-lg-12 col-md-12 col-sm-12">
@@ -73,6 +72,7 @@
 				    <select class="form-control" name="inputType" id="inputType" value="Appartement">
 					    <option>Appartement</option>
 					    <option>Pavillon</option>
+					    <option>Chambre d'hotel</option>
 					    <option>Villa</option>
 					    <option>Studio</option>
 					    <option>Cabane</option>
