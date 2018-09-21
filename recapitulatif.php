@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<?php 
-require('database_auth.php');
-var_dump($_POST);
-=======
+
 <?php
 require("database_auth.php");
 //var_dump($_POST);
@@ -59,5 +55,4 @@ if(isset($_POST["idLogement"]) && isset($_POST["date_debut_client"]) && isset($_
 */
 
  ?>
->>>>>>> 21045f87c6752b9b32d777ab46f563b25f76e4ed
 
