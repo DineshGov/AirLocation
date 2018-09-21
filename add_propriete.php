@@ -6,7 +6,6 @@ require('database_auth.php');?>
 
 
 	<?php
-	var_dump($_POST);
 	if(isset($_POST['inputVille']) && isset($_POST['dateArr']) && isset($_POST['dateDep']) && isset($_POST['capacite']) && isset($_POST['inputType']) && isset($_POST['inputPrix']) && isset($_POST['inputNom']) && isset($_POST['inputDescription']) && trim($_POST['inputVille']) !== "" && trim($_POST['dateArr']) !== "" && trim($_POST['dateDep']) !== "" && trim($_POST['capacite']) !== "" && trim($_POST['inputType']) !== "" && trim($_POST['inputPrix']) !== "" && trim($_POST['inputNom']) !== "" && trim($_POST['inputDescription']) !== ""){
 
 		$req=$bd->prepare('INSERT INTO logements (ville, dateArr, dateDep, capacite, typeLogement, prix, nomLogement, description, latitude, longitude, idProprio) VALUES (:ville, :arr, :dep, :cap, :type, :prix, :nom, :descr, :lat, :long, :idP);');
@@ -25,13 +24,13 @@ require('database_auth.php');?>
 //dateArr	dateDep	capacite	idProprio	longitude	latitude	typeLogement	prix	description	nomLogement	idLogement
         echo '<div class="redirection_div"> Logement ajouté. </div>';
 		echo "<p>Votre logement a bien été ajouté.</p> <p>Vous allez maintenant être redirigé vers votre espace propriétaire.</p>" . "\n<a href='espace_proprio.php'> Cliquez ici si l'attente est trop longue. </a>";
-		echo("<script>setTimeout('RedirectionVersEspaceProprio()', 4000)</script>");
+		echo("<script>setTimeout('RedirectionVersEspaceProprio()', 3000)</script>");
 
 	}
 	else{
 		echo '<div class="redirection_div"> Erreur. </div>';
 		echo "<p>Le formulaire n'a pas été correctement rempli.</p> <p>Vous allez maintenant être redirigé vers le formulaire d'ajout de propriété.</p>" . "\n<a href='espace_proprio.php'> Cliquez ici si l'attente est trop longue. </a>";
-		echo("<script>setTimeout('RedirectionVersEspaceProprio()', 4000)</script>");
+		echo("<script>setTimeout('RedirectionVersEspaceProprio()', 3000)</script>");
 	}
 
 	?>

@@ -85,7 +85,14 @@ $(document).ready(function(){
 									
 									});
 									
-									monMarqueur[i].bindPopup("<strong>"+reponse[i].nomLogement+"</strong><br>"+reponse[i].description);
+									monMarqueur[i].bindPopup(
+										"<strong>Nom: </strong>"+reponse[i].nomLogement+"<br>"+
+										"<strong>Ville: </strong>"+reponse[i].ville+"<br>"+
+										"<strong>Description: </strong>"+reponse[i].description+"<br>"+
+										"<strong>Capacité: </strong>"+reponse[i].capacite+"<br>"+
+										"<strong>Date d'arrivé: </strong>"+reponse[i].dateArr+"<br>"+
+										"<strong>Date de depart: </strong>"+reponse[i].dateDep+"<br>"								
+									);
 								}				
 							}
 						);
