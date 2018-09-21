@@ -17,7 +17,10 @@
    crossorigin=""></script>
 
   <link  href="css/hotel-datepicker.css" rel="stylesheet">
+
+  
   <script src="jquery/jquery-3.3.1.js"></script>  
+
   <script src="bootstrap/js/bootstrap.min.js"></script>
 
   <script src="js/carte.js"></script>
