@@ -79,6 +79,9 @@ $(document).ready(function(){
 											if($(this).attr('id')=="markId" && $(this).text()==parseInt(a) )
 												$(this).parent().css("background-color","#F5F5F5");
 										})
+										
+										var $target = $('html,body'); 
+										$target.animate({scrollTop: $target.height()}, 1000);
 									
 									});
 									
