@@ -51,7 +51,7 @@ if (isset($_POST['destination']) && isset($_POST['date_debut']) && isset($_POST[
 
 	if($res){
 
-		$resultats="<div class='row'><div class='col-md-11'><table class='table table-bordered' style='margin-left:20px;margin-top:20px'>
+		$resultats="<div class='row'><div class='col-md-11'><table class='table table-bordered' style='margin-left:20px;margin-top:20px; background-color:white'>
 						<thead>
 							<tr>
 								<th scope=col>Résultats</th>

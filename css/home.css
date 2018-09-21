@@ -1,0 +1,54 @@
+#boite{
+
+	background:white;
+	height: 500px;
+	margin-right: 20px; 
+	margin-left: 10px;
+	border-radius: 15px;
+}
+
+h2{
+	text-align: left;
+	font-weight: bold;
+	margin-bottom: 40px;
+}
+
+.row{
+	 margin-top: 30px;
+}
+
+.inner-addon {
+  position: relative;
+}
+
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+#champ_recherche{
+	margin-left: 10px;
+	margin-right:10px;
+}
+
+#champ_calendrier{
+	margin-left: 10px;
+	margin-right:10px;
+}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+
+#recherche{
+	margin-top: 40px;
+}
+
+#mapid{
+	height: 500px;
+	display: inline-block;
+	position: absolute;
+	z-index: 0;
+}
+
+

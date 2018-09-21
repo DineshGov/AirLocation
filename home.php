@@ -3,66 +3,60 @@
 	$page_name="home.php";
   require ('entete.php');
 ?>
-
+  <link rel="stylesheet" type="text/css" href="css/home.css">
   <div class="col-lg-12 col-md-12 col-sm-12">
 
   <div id="notification"></div>
 
-    <div class="col-lg-4 col-md-4 col-sm-4" style="border: 1px solid white; height: 500px; margin-right: 20px;">
+    <div id="boite" class="col-lg-4 col-md-4 col-sm-4">
       
-      <div class = "panel panel-primary">
-        <div class = "panel-heading">
-        <h3 class = "panel-title" style="text-align: center;">Réservez</h3>
-        </div>
-   
-   
-      </div>
+      <h2>Réservez des logements<br>et des expériences<br>uniques.</h2>
       
         <form method="post" action="requete_ajax_home.php">
-          <div class="row">
-            <div class="col-sm-12">
-              <span class="glyphicon glyphicon-search" style="margin-top: 5px"></span>
+
+
+          <div class="row ">
+             
+            <div id="champ_recherche" class="inner-addon left-addon">
+              
+                <i class="glyphicon glyphicon-map-marker"></i>
+              
               <input type="text" id="destination" class="form-control" placeholder="Où ?" name="destination">
-              <!-- <input id="ville" type="text" class="form-control" placeholder="Où ?"> -->
             </div>
           </div>
 
-           <div class="row" style="margin-top: 30px;">  
-               <div class="col-md-12">
-                <span class="glyphicon glyphicon-calendar" style="margin-top: 5px; "></span>
-              
-             <!-- <input type="email" class="form-control" id="inputEmail4" placeholder="Email"> -->
+           <div class="row">  
+               <div id="champ_calendrier" class="inner-addon left-addon">
+                <i class="glyphicon glyphicon-calendar"></i>
                 <input class="form-control" type="text" placeholder="Date" name="date" id="date">
               </div>
              
             </div>
 
-            <div class="row" style="margin-top: 30px;">
-              <div class="col-md-6">
-                <span class="glyphicon glyphicon-user" style="margin-top: 5px"></span>  
-                <input class="form-control col-sm-12" type="number" min="1" max="10" placeholder="Voyageurs" name="voyageurs" id="voyageurs">
-              </div>
+            <div class="row">
+              <div class="col-sm-6 col-md-6 col-lg-6">
+
+                <div class="inner-addon left-addon">
+                  <i class="glyphicon glyphicon-user"></i>  
+                  <input class="form-control" type="number" min="1" max="10" placeholder="Voyageurs" name="voyageurs" id="voyageurs">
+                </div>
+               </div> 
             </div> 
                
 			
 			   
-          <div class="row" style="margin-top: 50px;">
-            <div class="col-md-6 pull-right">    
-              <button id="recherche" type="button" class="form-control btn btn-success">Rechercher</button>
+          <div class="row"">
+            <div class="col-sm-6 col-md-6 col-lg-6 pull-right">    
+              <button id="recherche" type="button" class="form-control btn btn-danger">Rechercher</button>
             </div>  
           </div>
         </form>
 
-      
-
-
     </div>
 
-    <div id="mapid" class='col-md-7 col-sm-7 col-lg-7 custom-popup' style="border: 1px solid black; height: 500px; display: inline-block; position: absolute; z-index: 0;"></div>
-
+    <div id="mapid" class='col-md-7 col-sm-7 col-lg-7'></div>
 
     <div class="resultats"></div>
-
 	
   </div>
 
