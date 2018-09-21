@@ -27,15 +27,12 @@
             <div class="col-sm-12">
               <span class="glyphicon glyphicon-search" style="margin-top: 5px"></span>
               <input type="text" id="destination" class="form-control" placeholder="Où ?" name="destination">
-              <!-- <input id="ville" type="text" class="form-control" placeholder="Où ?"> -->
             </div>
           </div>
 
            <div class="row" style="margin-top: 30px;">  
                <div class="col-md-12">
                 <span class="glyphicon glyphicon-calendar" style="margin-top: 5px; "></span>
-              
-             <!-- <input type="email" class="form-control" id="inputEmail4" placeholder="Email"> -->
                 <input class="form-control" type="text" placeholder="Date" name="date" id="date">
               </div>
              

@@ -27,3 +27,10 @@ function RedirectionVersEspaceProprio(){
 	var url_destination = url_sans_nom_fichier.concat("/espace_proprio.php");
   	document.location.href= url_destination;
 }
+
+function RedirectionVersMonCompte(){
+	var url = document.location.href;
+	var url_sans_nom_fichier  = url.substring( 0 ,url.lastIndexOf( "/" ) );
+	var url_destination = url_sans_nom_fichier.concat("/mon_compte.php");
+  	document.location.href= url_destination;
+}
