@@ -26,6 +26,7 @@
                 <i class="glyphicon glyphicon-map-marker"></i>
               
               <input type="text" id="destination" class="form-control" placeholder="Où ?" name="destination">
+            
             </div>
           </div>
 
@@ -65,6 +66,7 @@
     <div class="resultats"></div>
 	
   </div>
+ 
 
 </body>
 </html>
