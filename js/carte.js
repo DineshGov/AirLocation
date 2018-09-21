@@ -261,7 +261,7 @@ $(document).ready(function(){
 
 /*An array containing all the country names in the world:*/
 var countries = ["Paris","Marseille","Toulouse","Nice","Bordeaux","Lyon","Lille","Nantes","Barcelone","Madrid","Valence","Londres","Chelsea","Liverpool","Manchester","Arsenal","Cardiff","Berlin","Munich","Rio","Tokyo","Lisbonne",
-"Buenos aires","Alger","Marrakech","New-York","Varsovie","Moscou","Pékin","Mexico","Lima","Bagdad","Rome","Kiev","Caracas","Beyrouth","Montevideo","Bruxelles","Dublin","Tunis","Athènes","Oslo","Canberra","Monaco","Kingston","New Delhi","Amsterdam","Le Caire","Zagreb","La Havane","Ottawa","Washington","Panama","Stockholm","Berne"];
+"Buenos aires","Alger","Marrakech","New-York","Varsovie","Moscou","Pékin","Mexico","Lima","Bagdad","Rome","Kiev","Caracas","Beyrouth","Montevideo","Bruxelles","Dublin","Tunis","Athènes","Oslo","Canberra","Monaco","Kingston","New Delhi","Amsterdam","Le Caire","Zagreb","La Havane","Ottawa","Washington","Panama","Stockholm","Berne","Saint-Denis","Pantin","Limoges","Sarcelles"];
 
 /*initiate the autocomplete function on the "destination" element, and pass along the countries array as possible autocomplete values:*/
 autocomplete(document.getElementById("destination"), countries);
